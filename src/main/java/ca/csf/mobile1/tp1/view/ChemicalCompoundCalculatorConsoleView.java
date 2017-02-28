@@ -38,8 +38,6 @@ public class ChemicalCompoundCalculatorConsoleView {
         molarWeigth = 0.0;
     }
 
-    //TODO : À compléter
-
 
     public void addListener(Listener listener)
     {
@@ -49,22 +47,19 @@ public class ChemicalCompoundCalculatorConsoleView {
     public void show()
     {
         writeToConsole(inputString);
-
+        formula = readFromConsole();
         for (Listener listener : listeners)
         {
             listener.onDataEntered();
         }
 
 
-        String.format(outputString,formula,molarWeigth);
-        writeToConsole(outputString);
+
 
     }
 
-
-
-    //public String getInput() { return input; }
-    //public void setOutput(votre_type outputNumber) { writeToConsole(String.format(â€¦)); }
+    public String getInput() { return formula; }
+    public void setOutput(String output) { writeToConsole(String.format(output)); }
 
 
     private String readFromConsole() {
@@ -90,22 +85,22 @@ public class ChemicalCompoundCalculatorConsoleView {
 
     public void showEmptyFormulaException (EmptyFormulaException e)
     {
-        writeToConsole("La formule saisie est vide.\n");
+        writeToConsole("La formule saisie est vide");
     }
 
     public void showIllegalCharacterException (IllegalCharacterException e)
     {
-        writeToConsole(String.format("Le caractère \"%s\" est illégal dans une formule chimique.\n",e.getCharacter()));
+        writeToConsole(String.format("Le caractère \"%s\" est illégal dans une formule chimique.",e.getCharacter()));
     }
 
     public void showMisplacedExponentException (MisplacedExponentException e)
     {
-        writeToConsole("Un exposant invalide est placé avant mëme un élément chimique ou une parenthèse.\n");
+        writeToConsole("Un exposant invalide est placé avant même un élément chimique ou une parenthèse.");
     }
 
     public void showIllegalClosingParenthesisException (IllegalClosingParenthesisException e)
     {
-        writeToConsole("Il y a une parenthèse fermante sans sa parenthèse ouvrante.\n");
+        writeToConsole("Il y a une parenthèse fermante sans sa parenthèse ouvrante.");
     }
 
     public void showUnknownChemicalElementException (UnknownChemicalElementException e)
@@ -116,12 +111,12 @@ public class ChemicalCompoundCalculatorConsoleView {
 
     public void showMissingClosingParenthesisException (MissingClosingParenthesisException e)
     {
-        writeToConsole("Il y a une parenthèse ouvrante sans sa parenthèse fermante.\n");
+        writeToConsole("Il y a une parenthèse ouvrante sans sa parenthèse fermante.");
     }
 
     public void showEmptyParenthesisException (EmptyParenthesisException e)
     {
-        writeToConsole("Il y a une parenthèse vide invalide.\n");
+        writeToConsole("Il y a une parenthèse vide invalide.");
     }
 
 

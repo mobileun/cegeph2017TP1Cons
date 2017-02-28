@@ -1,9 +1,9 @@
 package ca.csf.mobile1.tp1.chemical.element;
 
-import ca.csf.mobile1.tp1.chemical.element.ChemicalElement;
-import ca.csf.mobile1.tp1.chemical.element.ChemicalElementFactory;
 import org.junit.Before;
 import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
 
 public class ChemicalElementFactoryTest {
 

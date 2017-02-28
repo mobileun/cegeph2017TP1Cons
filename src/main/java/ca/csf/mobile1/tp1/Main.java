@@ -14,7 +14,7 @@ public class Main {
         ChemicalCompoundFactory model = new ChemicalCompoundFactory(chemicalElementRepository);
         ChemicalCompoundCalculatorConsoleView view = new ChemicalCompoundCalculatorConsoleView();
         ChemicalCompoundCalculatorController controller = new ChemicalCompoundCalculatorController(view,model);
-
+        controller.show();
 
     }
 

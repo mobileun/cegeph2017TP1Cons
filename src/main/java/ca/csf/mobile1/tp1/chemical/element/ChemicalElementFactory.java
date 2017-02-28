@@ -41,7 +41,30 @@ public class ChemicalElementFactory {
         //              3. Le numéro
         //              4. Le poids
         //      Chaque partie est séparée par une virgule.
-        return null;
+        if (string == null)
+        {
+            throw new IllegalArgumentException();
+        }
+        string =string.replaceAll("\\s","");
+        string =string.replaceAll("\\\t","");
+        string =string.replaceAll("\\\n","");
+
+
+        if (string.length() < 1)
+        {
+            throw new IllegalArgumentException();
+        }
+
+        String[] formulaSplitted = string.split(",");
+        if (formulaSplitted.length != 4)
+        {
+            throw new IllegalArgumentException();
+        }
+        ChemicalElement chemicalElement = new ChemicalElement(formulaSplitted[0],formulaSplitted[1],Integer.parseInt(formulaSplitted[2]),Double.parseDouble(formulaSplitted[3]));
+
+
+
+        return chemicalElement;
     }
 
 }
