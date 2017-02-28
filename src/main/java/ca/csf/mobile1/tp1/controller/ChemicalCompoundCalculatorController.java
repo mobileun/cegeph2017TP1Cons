@@ -1,5 +1,6 @@
 package ca.csf.mobile1.tp1.controller;
 
+import ca.csf.mobile1.tp1.chemical.compound.ChemicalCompound;
 import ca.csf.mobile1.tp1.chemical.compound.ChemicalCompoundFactory;
 import ca.csf.mobile1.tp1.chemical.compound.EmptyFormulaException;
 import ca.csf.mobile1.tp1.chemical.compound.EmptyParenthesisException;
@@ -16,7 +17,7 @@ import ca.csf.mobile1.tp1.view.ChemicalCompoundCalculatorConsoleView;
 
 public class ChemicalCompoundCalculatorController implements ChemicalCompoundCalculatorConsoleView.Listener
 {
-
+    private String outputString = "Le poids de %s est %f g/mol.\n";
     ChemicalCompoundCalculatorConsoleView view;
     ChemicalCompoundFactory model;
 
@@ -31,9 +32,12 @@ public class ChemicalCompoundCalculatorController implements ChemicalCompoundCal
     {
 
        try {
-           model.createFromString(view.getInput());
-           //String.format(outputString,formula,molarWeigth);
-           //writeToConsole(outputString);
+           String formula = view.getInput();
+           ChemicalCompound compound= model.createFromString(formula);
+           double molarWeigth = compound.getWeight();
+
+           outputString = String.format(outputString,formula,molarWeigth);
+           view.setOutput(outputString);
        }
         catch (EmptyParenthesisException e)
         {
