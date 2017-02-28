@@ -1,6 +1,12 @@
 package ca.csf.mobile1.tp1.view;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+
+import ca.csf.mobile1.tp1.chemical.compound.EmptyFormulaException;
 
 public class ChemicalCompoundCalculatorConsoleView {
 
@@ -31,5 +37,14 @@ public class ChemicalCompoundCalculatorConsoleView {
             e.printStackTrace();
         }
     }
+
+
+
+
+    public void showEmptyFormulaException (EmptyFormulaException e)
+    {
+        writeToConsole("La formule saisie est vide.\n");
+    }
+
 
 }
