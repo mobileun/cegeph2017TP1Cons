@@ -1,15 +1,21 @@
 package ca.csf.mobile1.tp1;
 
+import ca.csf.mobile1.tp1.chemical.compound.ChemicalCompoundFactory;
 import ca.csf.mobile1.tp1.chemical.element.ChemicalElementFactory;
 import ca.csf.mobile1.tp1.chemical.element.ChemicalElementRepository;
+import ca.csf.mobile1.tp1.controller.ChemicalCompoundCalculatorController;
+import ca.csf.mobile1.tp1.view.ChemicalCompoundCalculatorConsoleView;
 
 public class Main {
 
     public static void main(String[] args) throws Exception {
         ChemicalElementRepository chemicalElementRepository = createChemicalElementRepository();
-        //TODO : Instancier le modèle
-        //TODO : Instancier la vue (ChemicalCompoundCalculatorConsoleView, qui doit être complétée)
-        //TODO : Instancier le contrôleur
+
+        ChemicalCompoundFactory model = new ChemicalCompoundFactory(chemicalElementRepository);
+        ChemicalCompoundCalculatorConsoleView view = new ChemicalCompoundCalculatorConsoleView();
+        ChemicalCompoundCalculatorController controller = new ChemicalCompoundCalculatorController(view,model);
+
+
     }
 
     private static ChemicalElementRepository createChemicalElementRepository() {
