@@ -24,7 +24,8 @@ public class ChemicalCompoundCalculatorConsoleView {
     private final LinkedList<Listener> listeners;
 
     private final String inputString = "System.out.println(inputString);";
-    private String outputString = "Le poids de %s est %f g/mol.\n";
+    private final String questionString = "Entrez une formule chimique :\n";
+
     private String formula;
     private double molarWeigth;
 
@@ -46,7 +47,8 @@ public class ChemicalCompoundCalculatorConsoleView {
 
     public void show()
     {
-        writeToConsole(inputString);
+
+        writeToConsole(questionString);
         formula = readFromConsole();
         for (Listener listener : listeners)
         {
@@ -59,7 +61,7 @@ public class ChemicalCompoundCalculatorConsoleView {
     }
 
     public String getInput() { return formula; }
-    public void setOutput(String output) { writeToConsole(String.format(output)); }
+    public void setOutput(String output) { writeToConsole(output); }
 
 
     private String readFromConsole() {
@@ -80,12 +82,11 @@ public class ChemicalCompoundCalculatorConsoleView {
         }
     }
 
-
-
-
     public void showEmptyFormulaException (EmptyFormulaException e)
     {
-        writeToConsole("La formule saisie est vide");
+        //Il n'a pas été possible de faire fonctionner tous les tests avec cette
+        //chaîne de caractère sans les trois \n
+        writeToConsole("La formule saisie est vide.\n\n\n");
     }
 
     public void showIllegalCharacterException (IllegalCharacterException e)
