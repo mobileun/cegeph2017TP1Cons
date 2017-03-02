@@ -15,12 +15,21 @@ import ca.csf.mobile1.tp1.view.ChemicalCompoundCalculatorConsoleView;
  * Created by Fredgag on 2017-02-28.
  */
 
+/**
+ * Classe ayant le rôle de controller dans l'appication selon le modèle d'architecture MVC
+ * Le modèle est une librairire calculant les masse molaires de composés chimiques
+ */
 public class ChemicalCompoundCalculatorController implements ChemicalCompoundCalculatorConsoleView.Listener
 {
     private String outputString = "Le poids de %s est %f g/mol.\n";
     ChemicalCompoundCalculatorConsoleView view;
     ChemicalCompoundFactory model;
 
+    /**
+     * Constructeur de la classe
+     * @param view la view de l'application selon architeccture MVC
+     * @param model le modèle de l'application selon architeccture MVC
+     */
     public ChemicalCompoundCalculatorController(ChemicalCompoundCalculatorConsoleView view , ChemicalCompoundFactory model)
     {
         this.model = model;
@@ -28,6 +37,12 @@ public class ChemicalCompoundCalculatorController implements ChemicalCompoundCal
         view.addListener(this);
     }
 
+    /**
+     * Méthode de l'interface Listener de la view du MVC
+     * La méthode appelle le modèle de calcul des masse molaires
+     * et gère les exceptions de composés chimiques non valables
+     * @see ChemicalCompoundCalculatorConsoleView #Listener
+     */
     public void onDataEntered()
     {
 
@@ -69,6 +84,9 @@ public class ChemicalCompoundCalculatorController implements ChemicalCompoundCal
         }
     }
 
+    /**
+     * Méthode déammarrant le contrôleur
+     */
     public void show()
     {
         view.show();

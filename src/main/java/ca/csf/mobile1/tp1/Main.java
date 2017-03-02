@@ -6,8 +6,16 @@ import ca.csf.mobile1.tp1.chemical.element.ChemicalElementRepository;
 import ca.csf.mobile1.tp1.controller.ChemicalCompoundCalculatorController;
 import ca.csf.mobile1.tp1.view.ChemicalCompoundCalculatorConsoleView;
 
+/**
+ * La class Main est le point d'entrée de l'application.
+ */
 public class Main {
 
+    /**
+     * Méthode initialisant l'application selon l'architecture MVC
+     * @param args aucun
+     * @throws Exception toutes exceptions non gérées par l'application
+     */
     public static void main(String[] args) throws Exception {
         ChemicalElementRepository chemicalElementRepository = createChemicalElementRepository();
 
@@ -18,6 +26,10 @@ public class Main {
 
     }
 
+    /**
+     * Fonction créant le ChemicalElementRepository
+     * @return ChemicalElementRepository
+     */
     private static ChemicalElementRepository createChemicalElementRepository() {
         ChemicalElementFactory chemicalElementFactory = new ChemicalElementFactory();
         ChemicalElementRepository chemicalElementRepository = new ChemicalElementRepository();
