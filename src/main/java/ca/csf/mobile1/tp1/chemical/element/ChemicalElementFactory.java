@@ -34,6 +34,7 @@ public class ChemicalElementFactory {
      * @throws IllegalArgumentException Lorsque la chaine de caractères ne respecte pas le format demandé.
      */
     public ChemicalElement createFromString(String string) {
+        //BEN_CORRECTION : Enlever les "TODO" une fois fait.
         //TODO : À partir de la string, créer un ChemicalElement.
         //       Cette String est en 4 parties :
         //              1. Le nom
@@ -42,7 +43,7 @@ public class ChemicalElementFactory {
         //              4. Le poids
         //      Chaque partie est séparée par une virgule.
         if (string == null)
-        {
+        { //BEN_CORRECTION : "{" styles C#. Non respect du standard Java.
             throw new IllegalArgumentException();
         }
         string =string.replaceAll("\\s","");
@@ -51,15 +52,16 @@ public class ChemicalElementFactory {
 
 
         if (string.length() < 1)
-        {
+        { //BEN_CORRECTION : "{" styles C#. Non respect du standard Java.
             throw new IllegalArgumentException();
         }
 
         String[] formulaSplitted = string.split(",");
         if (formulaSplitted.length != 4)
-        {
+        { //BEN_CORRECTION : "{" styles C#. Non respect du standard Java.
             throw new IllegalArgumentException();
         }
+        //BEN_REVIEW : Évite de créer une variable si ce n'est que pour la "retourner" juste après.
         ChemicalElement chemicalElement = new ChemicalElement(formulaSplitted[0],formulaSplitted[1],Integer.parseInt(formulaSplitted[2]),Double.parseDouble(formulaSplitted[3]));
 
 

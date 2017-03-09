@@ -27,11 +27,14 @@ public class ChemicalCompoundCalculatorConsoleView {
 
     private final LinkedList<Listener> listeners;
 
+    //BEN_CORRECTION : Hein ? C'est quoi ça ?
+    //BEN_CORRECTION : Devrait être static aussi.
     private final String inputString = "System.out.println(inputString);";
+    //BEN_CORRECTION : Devrait être static aussi.
     private final String questionString = "Entrez une formule chimique :\n";
 
     private String formula;
-    private double molarWeigth;
+    private double molarWeigth; //BEN_REVIEW : Faute d'anglais. "molarWeight" et non pas "molarWeigth".
 
     /**
      * Interface de gestion d'une entrée de formule chimique

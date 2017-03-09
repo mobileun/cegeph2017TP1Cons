@@ -20,7 +20,7 @@ import ca.csf.mobile1.tp1.view.ChemicalCompoundCalculatorConsoleView;
  * Le modèle est une librairire calculant les masse molaires de composés chimiques
  */
 public class ChemicalCompoundCalculatorController implements ChemicalCompoundCalculatorConsoleView.Listener
-{
+{ //BEN_CORRECTION : "{" styles C#. Non respect du standard Java.
     private String outputString = "Le poids de %s est %f g/mol.\n";
     ChemicalCompoundCalculatorConsoleView view;
     ChemicalCompoundFactory model;
@@ -31,7 +31,7 @@ public class ChemicalCompoundCalculatorController implements ChemicalCompoundCal
      * @param model le modèle de l'application selon architeccture MVC
      */
     public ChemicalCompoundCalculatorController(ChemicalCompoundCalculatorConsoleView view , ChemicalCompoundFactory model)
-    {
+    { //BEN_CORRECTION : "{" styles C#. Non respect du standard Java.
         this.model = model;
         this.view = view;
         view.addListener(this);
@@ -44,7 +44,7 @@ public class ChemicalCompoundCalculatorController implements ChemicalCompoundCal
      * @see ChemicalCompoundCalculatorConsoleView #Listener
      */
     public void onDataEntered()
-    {
+    { //BEN_CORRECTION : "{" styles C#. Non respect du standard Java.
 
        try {
            String formula = view.getInput();
@@ -55,31 +55,31 @@ public class ChemicalCompoundCalculatorController implements ChemicalCompoundCal
            view.setOutput(outputString);
        }
         catch (EmptyParenthesisException e)
-        {
+        { //BEN_CORRECTION : "{" styles C#. Non respect du standard Java.
             view.showEmptyParenthesisException(e);
         }
         catch (IllegalCharacterException e)
-        {
+        { //BEN_CORRECTION : "{" styles C#. Non respect du standard Java.
              view.showIllegalCharacterException(e);
         }
         catch (IllegalClosingParenthesisException e)
-        {
+        { //BEN_CORRECTION : "{" styles C#. Non respect du standard Java.
             view.showIllegalClosingParenthesisException(e);
         }
         catch (MisplacedExponentException e)
-        {
+        { //BEN_CORRECTION : "{" styles C#. Non respect du standard Java.
             view.showMisplacedExponentException(e);
         }
         catch (EmptyFormulaException e)
-        {
+        { //BEN_CORRECTION : "{" styles C#. Non respect du standard Java.
             view.showEmptyFormulaException(e);
         }
         catch (UnknownChemicalElementException e)
-        {
+        { //BEN_CORRECTION : "{" styles C#. Non respect du standard Java.
              view.showUnknownChemicalElementException(e);
         }
         catch (MissingClosingParenthesisException e)
-        {
+        { //BEN_CORRECTION : "{" styles C#. Non respect du standard Java.
               view.showMissingClosingParenthesisException(e);
         }
     }
